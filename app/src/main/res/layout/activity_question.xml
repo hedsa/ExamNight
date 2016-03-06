@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="ir.mohandesplus.examnight.activities.QuestionActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="ir.mohandesplus.examnight.activities.QuestionActivity">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/question_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="#444"
+                    android:id="@+id/question_text"
+                    android:padding="@dimen/grid_margin_side"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question" />
+                <View
+                    android:layout_marginBottom="@dimen/grid_margin_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#888"/>
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/question_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_margin_side">
+                <TextView
+                    android:textColor="#444"
+                    android:id="@+id/question_sanswer"
+                    android:padding="@dimen/grid_margin_side"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/short_answer" />
+                <View
+                    android:layout_marginBottom="@dimen/grid_margin_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#888" />
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_short_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/short_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_margin_side">
+                <TextView
+                    android:textColor="#444"
+                    android:id="@+id/question_qanswer"
+                    android:padding="@dimen/grid_margin_side"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/complete_answer" />
+                <View
+                    android:layout_marginBottom="@dimen/grid_margin_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#888" />
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_complete_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/complete_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/progress_bar"
+        android:indeterminate="true"
+        app:mpb_progressStyle="circular"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="?colorPrimary"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Large.NoPadding" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_action_add_shopping_cart" />
+
+    <include
+        android:visibility="gone"
+        layout="@layout/no_connection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_connection" />
+
+
+</android.support.design.widget.CoordinatorLayout>

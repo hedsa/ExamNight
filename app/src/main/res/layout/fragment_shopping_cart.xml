@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ir.mohandesplus.examnight.fragments.ShoppingCartFragment">
+
+    <include layout="@layout/content_shopping_cart" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_action_shopping_cart" />
+
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:tint="?colorPrimary"
+        android:indeterminate="true"
+        android:id="@+id/progress_bar"
+        app:mpb_progressStyle="circular"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Large.NoPadding" />
+
+    <include
+        android:visibility="gone"
+        layout="@layout/empty_shopping_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/empty_shopping_cart" />
+
+</RelativeLayout>

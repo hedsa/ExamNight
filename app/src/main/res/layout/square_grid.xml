@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/fab_margin"
+    android:layout_marginEnd="@dimen/fab_margin"
+    android:layout_marginStart="@dimen/fab_margin">
+
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/square_1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.485"
+        android:background="@android:color/white">
+        <ImageView
+            android:id="@+id/square_image_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_width"
+            android:src="@drawable/ic_action_no_signal"
+            android:contentDescription="@string/app_name"/>
+        <TextView
+            android:gravity="center"
+            android:background="#DDD"
+            android:textColor="#444"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:id="@+id/square_text_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/grid_margin"
+            android:text="@string/app_name"/>
+    </LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="0.03"
+        android:layout_height="@dimen/column_width"/>
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/square_2"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.485"
+        android:background="@android:color/white">
+        <ImageView
+            android:id="@+id/square_image_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_width"
+            android:src="@drawable/ic_action_no_signal"
+            android:contentDescription="@string/app_name"/>
+        <TextView
+            android:gravity="center"
+            android:textColor="#444"
+            android:background="#DDD"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:id="@+id/square_text_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/grid_margin"
+            android:text="@string/app_name"/>
+    </LinearLayout>
+
+</LinearLayout>

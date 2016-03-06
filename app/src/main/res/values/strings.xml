@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">شب‌امتحان</string>
+
+    <string name="navigation_drawer_open">بازکردن منوی کشویی</string>
+    <string name="navigation_drawer_close">بستن منوی‌ کشویی</string>
+
+    <string name="year">سال</string>
+    <string name="buy">خرید</string>
+    <string name="home">خانه</string>
+    <string name="course">درس</string>
+    <string name="news">تازه‌ها</string>
+    <string name="search">جستجو</string>
+    <string name="settings">تنظیمات</string>
+    <string name="communicate">ارتباط</string>
+    <string name="university">دانشگاه</string>
+    <string name="about_us">درباره‌ی ما</string>
+    <string name="categories">دسته‌بندی</string>
+    <string name="shopping_cart">سبدخرید</string>
+    <string name="my_questions">سوالات من</string>
+    <string name="send_message">ارسال پیام</string>
+    <string name="question">سوال</string>
+    <string name="short_answer">پاسخ نهایی</string>
+    <string name="complete_answer">پاسخ کامل</string>
+
+    <string name="retry">تلاش مجدد</string>
+    <string name="buy_first">باید خریداری شود!</string>
+    <string name="nothing_found">موردی یافت نشد!</string>
+    <string name="no_signal">مشکل در اتصال به اینترنت!</string>
+    <string name="search_something">جستجو کنید&#8230;</string>
+    <string name="empty_shopping_cart">سبد خرید خالیست!</string>
+
+    <string name="title_activity_pacakge">Pack</string>
+    <string name="title_activity_question">Pack</string>
+    <string name="title_activity_square">Pack</string>
+    <string name="title_activity_search">Pack</string>
+    <string name="title_activity_shopping_cart">سبد خرید</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

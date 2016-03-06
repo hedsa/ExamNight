@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="ir.mohandesplus.examnight.activities.QuestionActivity">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <FrameLayout
+            android:visibility="invisible"
+            android:id="@+id/child_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/question_child_content"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_child_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/question_child_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_margin_side">
+                <TextView
+                    android:textColor="#444"
+                    android:id="@+id/question_child_sanswer"
+                    android:padding="@dimen/grid_margin_side"
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/short_answer" />
+                <View
+                    android:layout_marginBottom="@dimen/grid_margin_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#888" />
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_child_short_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/short_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_margin_side">
+                <TextView
+                    android:textColor="#444"
+                    android:id="@+id/question_child_qanswer"
+                    android:padding="@dimen/grid_margin_side"
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/complete_answer" />
+                <View
+                    android:layout_marginBottom="@dimen/grid_margin_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#888" />
+                <ir.mohandesplus.examnight.views.CustomMathView
+                    android:id="@+id/question_child_complete_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/complete_buy"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_first"
+                    android:padding="@dimen/grid_margin_side"
+                    android:drawableStart="@drawable/ic_action_lock"
+                    android:drawablePadding="@dimen/grid_margin_side"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            </LinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/progress_bar"
+            android:indeterminate="true"
+            app:mpb_progressStyle="circular"
+            android:paddingTop="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="?colorPrimary"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.NoPadding" />
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

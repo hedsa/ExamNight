@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="@android:color/black"
+        android:id="@+id/horizontal_list_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        android:layout_gravity="right"/>
+
+    <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+        android:layout_marginTop="5dp"
+        android:id="@+id/horizontal_list_self"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        app:recyclerviewClipToPadding="true"
+        app:recyclerviewScrollbars="horizontal"/>
+
+</LinearLayout>

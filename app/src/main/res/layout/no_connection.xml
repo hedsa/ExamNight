@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/no_connection_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_action_no_signal"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:id="@+id/no_connection_text"
+            android:layout_margin="10dp"
+            android:layout_below="@id/no_connection_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_signal"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/abc_text_size_medium_material"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_below="@id/no_connection_text"
+            android:id="@+id/no_connection_button"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:textSize="@dimen/abc_text_size_subhead_material" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

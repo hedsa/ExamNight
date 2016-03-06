@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingEnd="@dimen/grid_margin_side"
+    android:paddingStart="@dimen/grid_margin_side"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="ir.mohandesplus.examnight.activities.SearchActivity$PlaceholderFragment">
+
+    <ir.mohandesplus.examnight.views.AutofitRecyclerView
+        android:id="@+id/search_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/column_width"/>
+
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/progress_bar"
+        android:indeterminate="true"
+        app:mpb_progressStyle="circular"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:tint="?colorPrimary"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Large.NoPadding" />
+
+    <include
+        android:visibility="gone"
+        layout="@layout/no_connection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_connection" />
+
+    <include
+        android:visibility="gone"
+        layout="@layout/search_first"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_first" />
+
+    <include
+        android:visibility="gone"
+        layout="@layout/nothing_found"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nothing_found" />
+
+</RelativeLayout>
