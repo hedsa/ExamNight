@@ -10,6 +10,7 @@ android {
         buildConfigField 'String', 'URL_PACKAGE', toJavaCodeString(URL_PACKAGE)
         buildConfigField 'String', 'URL_QUESTION', toJavaCodeString(URL_QUESTION)
         buildConfigField 'String', 'URL_IMAGES', toJavaCodeString(URL_IMAGES)
+        buildConfigField 'String', 'URL_USER', toJavaCodeString(URL_USER)
         applicationId "ir.mohandesplus.examnight"
         minSdkVersion 17
         targetSdkVersion 23

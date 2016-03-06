@@ -1,6 +1,7 @@
 package ir.mohandesplus.examnight.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
@@ -40,6 +41,7 @@ import ir.mohandesplus.examnight.R;
 import ir.mohandesplus.examnight.adapters.PackageAdapter;
 import ir.mohandesplus.examnight.app.AppController;
 import ir.mohandesplus.examnight.modules.Package;
+import ir.mohandesplus.examnight.utils.PreferenceUtils;
 import ir.mohandesplus.examnight.utils.TimeUtils;
 import ir.mohandesplus.examnight.utils.WebUtils;
 import ir.mohandesplus.examnight.views.AutofitRecyclerView;
@@ -73,6 +75,9 @@ public class SearchActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
 
         this.searchQuery = getIntent().getStringExtra(SEARCH_QUERY);
         initializeToolbar();
@@ -359,6 +364,13 @@ public class SearchActivity extends AppCompatActivity implements
             }
         });
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
+        super.onResume();
     }
 
     @Override

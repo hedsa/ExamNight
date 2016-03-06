@@ -2,6 +2,7 @@ package ir.mohandesplus.examnight.activities;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +35,7 @@ import ir.mohandesplus.examnight.R;
 import ir.mohandesplus.examnight.app.AppController;
 import ir.mohandesplus.examnight.modules.Question;
 import ir.mohandesplus.examnight.modules.SaveMode;
+import ir.mohandesplus.examnight.utils.PreferenceUtils;
 import ir.mohandesplus.examnight.utils.TimeUtils;
 import ir.mohandesplus.examnight.utils.WebUtils;
 import ir.mohandesplus.examnight.views.CustomMathView;
@@ -59,6 +61,9 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
 
         initializeViews();
         setUpToolbar();
@@ -319,6 +324,13 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             case R.id.question_action_shopping_cart: return true; // Todo
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
+        super.onResume();
     }
 
     @Override

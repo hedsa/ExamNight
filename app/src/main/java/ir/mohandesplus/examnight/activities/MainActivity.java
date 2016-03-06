@@ -3,6 +3,7 @@ package ir.mohandesplus.examnight.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
@@ -26,6 +27,7 @@ import ir.mohandesplus.examnight.app.AppController;
 import ir.mohandesplus.examnight.fragments.HomeFragment;
 import ir.mohandesplus.examnight.fragments.ShoppingCartFragment;
 import ir.mohandesplus.examnight.utils.LanguageUtils;
+import ir.mohandesplus.examnight.utils.PreferenceUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity
@@ -51,6 +53,9 @@ public class MainActivity extends AppCompatActivity
 
         // Setting Up the decoration of this activity, i.e. the toolbar and ...
         setUpDecoration();
+
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
 
         // Launching home fragment if the app is started
         int launchMode = getIntent().getIntExtra(LAUNCH_MODE, -1);
@@ -201,6 +206,8 @@ public class MainActivity extends AppCompatActivity
         if (!LanguageUtils.deviceHasPersianLocale()) {
             defaultLocale = LanguageUtils.setPersianLocale(this);
         }
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
         super.onResume();
     }
 

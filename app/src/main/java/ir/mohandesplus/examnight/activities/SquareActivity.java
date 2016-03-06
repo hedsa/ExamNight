@@ -37,6 +37,7 @@ import ir.mohandesplus.examnight.adapters.PackageAdapter;
 import ir.mohandesplus.examnight.app.AppController;
 import ir.mohandesplus.examnight.modules.Package;
 import ir.mohandesplus.examnight.modules.SaveMode;
+import ir.mohandesplus.examnight.utils.PreferenceUtils;
 import ir.mohandesplus.examnight.utils.TimeUtils;
 import ir.mohandesplus.examnight.utils.WebUtils;
 import ir.mohandesplus.examnight.views.AutofitRecyclerView;
@@ -281,6 +282,13 @@ public class SquareActivity extends AppCompatActivity implements View.OnClickLis
             }
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
+        super.onResume();
     }
 
     @Override

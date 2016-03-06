@@ -1,6 +1,7 @@
 package ir.mohandesplus.examnight.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -45,6 +46,7 @@ import ir.mohandesplus.examnight.app.AppController;
 import ir.mohandesplus.examnight.modules.Package;
 import ir.mohandesplus.examnight.modules.Question;
 import ir.mohandesplus.examnight.modules.SaveMode;
+import ir.mohandesplus.examnight.utils.PreferenceUtils;
 import ir.mohandesplus.examnight.utils.TimeUtils;
 import ir.mohandesplus.examnight.utils.WebUtils;
 import ir.mohandesplus.examnight.views.SpaceItemDecoration;
@@ -84,6 +86,9 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package);
         this.savedInstanceState = savedInstanceState;
+
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
 
         initializeViews();
         showProgressBar();
@@ -427,6 +432,13 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.fab: addPackageToCart(); return true;
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if (!PreferenceUtils.hasLoggedIn(this))
+            startActivity(new Intent(this, LoginActivity.class));
+        super.onResume();
     }
 
     @Override
