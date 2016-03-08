@@ -169,7 +169,6 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView.addItemDecoration(spaceDecoration);
 
         for (View view : clickableViews) view.setOnClickListener(this);
-        loadQuestions();
 
     }
 
@@ -181,10 +180,8 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
         if (pack.isSaved()) {
             pack = pack.getSavedPack();
             initializePackage();
-            questions = new ArrayList<>();
             for (int id : pack.getQuestionIds()) {
-                questions.add(Question.findById(Question.class, id));
-                adapter.insertAtEnd(question);
+                adapter.insertAtEnd(Question.findById(Question.class, id));
                 if (isShowingProgressBar) showContent();
             }
         } else downLoadPackage();
@@ -208,6 +205,7 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
                 pack.description = packModel.getString("Description");
                 pack.questions = packModel.getString("Questions");
                 initializePackage();
+                loadQuestions();
             } catch (JSONException e) {
                 noConnectionText.setText(e.toString());
                 showNoConnectionLayout();
@@ -231,6 +229,7 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
                                 pack.description = packModel.getString("Description");
                                 pack.questions = packModel.getString("Questions");
                                 initializePackage();
+                                loadQuestions();
                             } catch (JSONException e) {
                                 noConnectionText.setText(e.toString());
                                 showNoConnectionLayout();

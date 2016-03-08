@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ir.mohandesplus.examnight.R;
@@ -56,7 +55,7 @@ public class ExpandablePackageAdapter extends
 
     public void insertAtEnd(Question question) {
         this.data.add(question);
-        mParentItemList = data;
+        super.mParentItemList = data;
         notifyParentItemInserted(data.size()-1);
         notifyChildItemInserted(data.size()-1, 0);
     }
