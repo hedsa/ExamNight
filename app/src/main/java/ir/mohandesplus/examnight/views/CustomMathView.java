@@ -3,9 +3,8 @@ package ir.mohandesplus.examnight.views;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.webkit.WebSettings;
+import android.view.View;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import ir.mohandesplus.examnight.utils.WebUtils;
 
@@ -17,6 +16,15 @@ public class CustomMathView extends WebView {
         setBackgroundColor(Color.TRANSPARENT);
         getSettings().setJavaScriptEnabled(true);
         getSettings().setAppCacheEnabled(false);
+        setLongClickable(true);
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
+        setLongClickable(false);
+        setHapticFeedbackEnabled(false);
     }
 
     public void setHtmlText(String htmlText) {

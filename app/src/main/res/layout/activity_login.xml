@@ -36,6 +36,14 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialProgressBar.ProgressBar.Large.NoPadding" />
 
+    <!-- No Connection -->
+    <include
+        android:visibility="gone"
+        layout="@layout/no_connection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_connection" />
+
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -89,13 +97,35 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_marginTop="16dp">-->
+                <!--<Button-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:id="@+id/email_sign_up_button"-->
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/action_sign_up"-->
+                    <!--android:textStyle="bold" />-->
+                <!--<Button-->
+                    <!--android:layout_toStartOf="@id/email_sign_up_button"-->
+                    <!--android:id="@+id/email_sign_in_button"-->
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/action_sign_in_short"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</RelativeLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp">
                 <Button
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:id="@+id/email_sign_in_button"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
@@ -103,11 +133,11 @@
                     android:text="@string/action_sign_in_short"
                     android:textStyle="bold" />
                 <View
-                    android:layout_weight="0.05"
+                    android:layout_weight="0.02"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
                 <Button
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:id="@+id/email_sign_up_button"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"

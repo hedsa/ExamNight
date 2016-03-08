@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +27,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.dynamixsoftware.ErrorAgent;
-import com.marshalchen.ultimaterecyclerview.animators.LandingAnimator;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -61,17 +59,17 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
             PACKAGE_IMAGES_URL = BuildConfig.URL_IMAGES + "packages/";
 
     Toolbar toolbar;
+    Button retryButton;
     ActionBar actionBar;
     ImageView packImage;
-    TextView subtitleText, noConnectionText;
+    View[] clickableViews;
+    View noConnectionLayout;
     FloatingActionButton fab;
     AppBarLayout appBarLayout;
     RecyclerView recyclerView;
-    CollapsingToolbarLayout collapsingToolbarLayout;
-    Button retryButton;
-    View noConnectionLayout;
     MaterialProgressBar progressBar;
-    View[] clickableViews;
+    TextView subtitleText, noConnectionText;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     Package pack;
     List<Question> questions;
@@ -176,15 +174,27 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void loadPackage() {
-
         pack = new Package();
         pack.setId(getIntent().getLongExtra(PACKAGE_ID, -1));
         pack.title = getIntent().getStringExtra(PACKAGE_TITLE);
         pack.price = getIntent().getIntExtra(PACKAGE_PRICE, -1);
+        if (pack.isSaved()) {
+            pack = pack.getSavedPack();
+            initializePackage();
+            questions = new ArrayList<>();
+            for (int id : pack.getQuestionIds()) {
+                questions.add(Question.findById(Question.class, id));
+                adapter.insertAtEnd(question);
+                if (isShowingProgressBar) showContent();
+            }
+        } else downLoadPackage();
+    }
+
+    private void downLoadPackage() {
+
         HashMap<String, String> params = new HashMap<>();
         params.put("Request", "Get");
         params.put("Id", String.valueOf(pack.getId()));
-        Log.d("test", "pack.getId() = " + pack.getId());
         final String cacheKey = WebUtils.generateCacheKeyWithParam(BuildConfig.URL_PACKAGE, params);
 
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
@@ -246,6 +256,7 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
             };
             AppController.getInstance().addToRequestQueue(request);
         }
+
     }
 
     int result = 1;
@@ -411,6 +422,9 @@ public class PackageActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(PackageActivity.this, "Was Already Added To Cart!", Toast.LENGTH_LONG).show();
             } else if (pack.getSaveMode() == SaveMode.ARCHIVE) {
                 // Todo: Navigate to Archives...
+                Toast.makeText(this,"Archived!!!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this,"WTF!? SaveMode = " + pack.getSaveMode(), Toast.LENGTH_LONG).show();
             }
         }
 

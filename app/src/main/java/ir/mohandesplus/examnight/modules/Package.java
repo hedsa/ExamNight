@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Package extends SugarRecord implements Serializable {
 
-    int saveMode = -1;
+    int saveMode;
     public int price;
     public String title, description, questions;
 
@@ -29,6 +29,10 @@ public class Package extends SugarRecord implements Serializable {
 
     public void setSaveMode(int saveMode) {
         this.saveMode = saveMode;
+    }
+
+    public Package getSavedPack() {
+        return Package.findById(Package.class, getId());
     }
 
     public int getSaveMode() {

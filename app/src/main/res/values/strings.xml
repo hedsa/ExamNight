@@ -51,5 +51,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="email_already_taken">این ایمیل قبلا ثبت نام کرده است!</string>
+    <string name="registered_successfully">ثبت‌نام انجام شد! خوش آمدید‌ :)</string>
+    <string name="wrong_data">ایمیل یا رمز‌عبور اشتباه است!</string>
+    <string name="signed_in_successfully">خوش‌آمدید :)</string>
 
 </resources>
